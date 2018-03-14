@@ -8,11 +8,13 @@
 </head>
 <body>
   <header>
-    <img id="logo" src="img/logo.jpg" alt="header">
+    <!-- <img id="logo" src="img/logo.jpg" alt="header"> -->
+		<a id="logo" class="icon-logout" href="index.html"><img src="img/logo.png" alt="Logo"></a>
     <div>
-      <h1>Recetas de cocina</h1>
-      <p>Yey la comidica</p>
+      <!-- <h1>Recetas de cocina</h1>
+      <p>Yey la comidica</p> -->
     </div>
+
   <nav class="menu">
     <ul>
       <li><label for="ckb-menu">&equiv;</label></li>
@@ -29,26 +31,29 @@
   <form enctype="multipart/form-data" id="registro">
 			<fieldset title="Formulario de registro">
 				<legend id="regis">Datos de usuario</legend>
-				<p>
+
 					<label for="login">Login:</label> <input type="text" id="nombre" name="nombre" pattern=".[a-zA-Z0-9]{6,20}" autofocus required  >
-				</p>
-        <p>
 					<label for="nombre">Nombre:</label> <input type="text" id="nombre" name="nombre" required  >
-				</p>
-				<p>
-					<label for="contraseña">Contrase&ntilde;a:</label> <input type="password" name="contra" id="contraseña" pattern=".[a-zA-Z0-9]{8,20}" required>
-				</p>
-        <p>
-					<label for="repetir">Repetir contraseña:</label> <input type="password" name="contra2" id="repetir" required>
-				</p>
-        <p>
-					<label for="correo" id="email">Email:</label> <input type="email" name="email" placeholder="miusuario@hotmail.com" id="correo" required >
-				</p>
-        <p>
-					<label for="nacimiento">Fecha de nacimiento:</label> <input type="date" name="fecha" id="nacimiento" required />
-				</p>
+
+					<label for="contraseña">Contrase&ntilde;a:</label>
+					<input type="password" name="contra" id="contraseña" pattern=".[a-zA-Z0-9]{8,20}" required>
+
+					<label for="repetir">Repetir contraseña:</label>
+					<input type="password" name="contra2" id="repetir" required>
+
+					<label for="correo" id="email">Email:</label>
+				  <input type="email" name="email" placeholder="miusuario@hotmail.com" id="correo" required >
+
+					<label for="nacimiento">Fecha de nacimiento:</label>
+					<input type="date" name="fecha" id="nacimiento" required />
+
+					<input type="submit" type="Submit" value="Registrarse">
       </fieldset>
     </form>
+		<br>
+		<br>
+		<br>
+		<br>
   <footer>
     <nav>
       <ul>

@@ -8,11 +8,13 @@
 </head>
 <body>
   <header>
-    <img id="logo" src="img/logo.jpg" alt="header">
+    <!-- <img id="logo" src="img/logo.jpg" alt="header"> -->
+		<a id="logo" class="icon-logout" href="index.html"><img src="img/logo.png" alt="Logo"></a>
     <div>
-      <h1>Recetas de cocina</h1>
-      <p>Yey la comidica</p>
+      <!-- <h1>Recetas de cocina</h1>
+      <p>Yey la comidica</p> -->
     </div>
+
   <nav class="menu">
     <ul>
       <li><label for="ckb-menu">&equiv;</label></li>
@@ -28,32 +30,64 @@
   <h2><a href=""> Macarrones con tomatico </a></h2>
   <section>
     <img src="img/receta4.jpg" alt="Macarrones con tomatico">
-    <a href=""> Anterior </a>
-    <a href=""> Siguiente </a>
+		<div>
+	    <a href=""> Anterior </a>
+	    <a href=""> Siguiente </a>
+		</div>
     <footer>
-      <time datetime="2018-02-23">Fecha <br> 23/02/2018</time>
-      <a href="buscar.html"> Bennedict Cumberbatch </a>
-      <p>Votos positivos <br>25</p>
-			<p>Votos negativos <br>2</p>
-			<p><a href="receta.html#comentarios">Comentarios </a><br> 10</p>
+	      <time datetime="2018-02-23">Fecha <br> 23/02/2018</time>
+	      <a href="buscar.html"> Bennedict Cumberbatch </a>
+				<p><img src="img/like.png" alt="Votos positivos"> <br>200</p>
+				<p><img src="img/dislike.png" alt="Votos negativos"><br>0</p>
+				<p><a id="com" href="receta.html#comentarios">Comentarios </a><br> 10</p>
     </footer>
-    <p>Dificultad: <b>Fácil</b></p>
-    <p>Tiempo de elaboracion: <b>20 minutos</b></p>
+		<footer>
+				<p>Dificultad: <b>Fácil</b></p>
+				<p>Tiempo de elaboracion: <b>20 minutos</b></p>
+    </footer>
   </section>
   <section>
     <h3>Elaboración:</h3>
-    <p>
+		<div id="elaboracion">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </section>
-  <a href="">Me gusta</a> / <a href="">No me gusta</a>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			<br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			<br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			<br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+	</section>
+  <a href=""><img src="img/like.png" alt="Voto positivo"></a> / <a href=""><img src="img/dislike.png" alt="Voto negativo"> </a>
   <section>
     <h2 id="comentarios">Comentarios</h2>
-    <section>
+    <section class="zonacom">
   		<h3 id="comentar">¡Deja tu comentario!</h3>
   		<form>
   			<fieldset>
@@ -67,7 +101,7 @@
   	</section>
     <article>
 			<header>
-        <p><b>La cena ideal</b></p>
+        	<p><b>La cena ideal</b></p>
           <p>Están muy buenos. Sí.</p>
 			</header>
 			<footer>
