@@ -183,7 +183,7 @@ section>footer>div{
 	background-color: #99cc99;
 }
 
-/*MENU-HAMBUGUESITA*/
+/*MENU-HAMBUGUESITA
 label[for="ckb-menu"]{
 	cursor: pointer;
 	font-size: 1.4em;
@@ -194,9 +194,14 @@ label[for="ckb-menu"]{
 }
 #ckb-menu:checked+nav{
 	max-height: 12.7em;
-}
+}*/
 
 /*NAVEGADOR*/
+
+input[type="checkbox"]{
+	display: none;
+}
+
 nav[class="menu"]{
 	width: 50%;
 	overflow: hidden;
@@ -204,7 +209,7 @@ nav[class="menu"]{
 	/*background-color: #FF6A29;*/
 
 }
-nav[class="menu"]>ul{
+nav[class="menu"]>div>ul{
 	list-style: none;
 	display: flex;
 	flex-direction: row;
@@ -212,11 +217,11 @@ nav[class="menu"]>ul{
 	margin: 0;
 	padding-top: 1em;
 	}
-nav[class="menu"]>ul>li{
+nav[class="menu"]>div>ul>li{
 	text-align: center;
 	width:100%;
 		}
-nav[class="menu"]>ul>li:hover{
+nav[class="menu"]>div>ul>li:hover{
 		background-color: #99cc99;
 		color:#fff;
 		transition:all 0.3s;
@@ -226,14 +231,14 @@ nav[class="menu"]>ul>li:hover{
 	background-color: #99cc99;
 }
 
-		nav[class="menu"]>ul>li>a{
+		nav[class="menu"]>div>ul>li>a{
 			display: block;
 			padding: .2em 0;
 			text-decoration: none;
 			font-style: bold;
 		}
 
-		nav[class="menu"]>ul>li>a,label[for="ckb-menu"]{
+		nav[class="menu"]>div>ul>li>a,label[for="ckb-menu"]{
 			display: block;
 			padding: .2em 0;
 			text-decoration: none;
@@ -396,26 +401,117 @@ article>footer>a:hover{
 	transition:all 0.2s ease-in-out;
 }
 
-/*NO FUNCIONA EL DESPLEGABLE DE HAMBURGUESA TODAVIA AAAAAA*/
-/*@media all and (min-width:480px){
-	/*DESPLEGABLE HABMUGUESA
-	nav[class="menu"]{
-		max-height: 2em;
-		max-width: 960px;
-	}
-		nav[class="menu"]>ul>li:first-of-type{
-			display: none;
-		}
-	nav>ul>li{
-		display: inline-block;
-		float:left;
-		padding: .2em;
-	}
-	nav>ul>li>a{
-			padding: .2em .5em;
-		}
-	nav[class="menu"]>ul>li:not(:last-of-type){
-		border-right: .1em solid #234;
+/*MODO TABLET*/
+@media (min-width: 481px) and (max-width: 720px){
+
+	/*MENU HAMBURGUESA*/
+	input[type="checkbox"]{
+		display: block;
 	}
 
-}*/
+#menutoggle{
+  display: block;
+  position: relative;
+  top: 3em;
+  
+  z-index: 1;
+}
+
+#menutoggle input
+{
+  display: block;
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+}
+
+#menutoggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menutoggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menutoggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+#menutoggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+#menutoggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menutoggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu
+{
+  position: relative;
+  width: 500px;
+  margin: -9em 0 0 -2em;
+  padding: 1em;
+  padding-top: 6.5em;
+  
+  display:block;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+
+  background: #343434;
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 1em 0;
+  font-size: 1em;
+}
+
+#menutoggle input:checked ~ ul
+{
+  transform: none;
+}
+
+}
+/*MODO MOVIL*/
+@media (max-width: 481px) {
+
+}
