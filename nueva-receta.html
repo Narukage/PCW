@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Indice</title>
+	<link rel="stylesheet" href="css/estilo.css">
+
+</head>
+<body>
+  <header>
+    <!-- <img id="logo" src="img/logo.jpg" alt="header"> -->
+		<a id="logo" class="icon-logout" href="index.html"><img src="img/logo.png" alt="Logo"></a>
+    <div>
+      <!-- <h1>Recetas de cocina</h1>
+      <p>Yey la comidica</p> -->
+    </div>
+
+  <nav class="menu">
+  	<div id="menutoggle">
+  		<input type="checkbox" />
+  		<span></span>
+	    <span></span>
+	    <span></span>
+	    <ul id="menu">
+	      <!--<li><label for="ckb-menu">&equiv;</label></li>-->
+	      <li><a class="icon-home" href="index.html">Inicio</a></li>
+				<li><a class="icon-home" href="nueva-receta.html">Nueva receta</a></li>
+	      <li><a class="icon-search" href="buscar.html">Buscar</a></li>
+	      <li><a class="icon-login-1" href="login.html">Iniciar sesi&oacute;n</a></li>
+	      <li><a class="icon-logout" href="index.html">Cerrar sesi&oacute;n</a></li>
+	      <li><a class="icon-user" href="registro.html">Registro</a></li>
+	    </ul>
+	</div>
+  </nav>
+  </header>
+  <section>
+  <h2>Nueva receta</h2>
+  <form enctype="multipart/form-data" id="busqueda">
+  <form enctype="multipart/form-data" id="busqueda">
+			<fieldset title="Formulario de búsqueda">
+				
+				<legend id="regis">Datos de la receta</legend>
+
+					
+					<label for="nombre">Nombre:</label> <input type="text" id="nombre" name="nombre" required title="Máximo 200 caracteres" maxlength="200"   >
+
+					<label for="ela">Elaboración:</label>
+					<textarea rows="4" cols="40" required> </textarea>
+
+					<label for="max">Tiempo de elaboración:</label>
+					<input type="number" name="min" id="min" required >
+
+					<label for="dif" id="dif">Dificultad:</label>
+						<select id="Dificultad" name="Dificultad" required>
+						<option value="" selected="selected">- selecciona -</option>
+						<option value="Baja">Baja</option>
+						<option value="Media">Media</option>
+						<option value="Alta">Alta</option>
+					</select>
+
+					<label for="comen">Número de comensales:</label>
+					<input type="number" name="comen" id="comen" required>
+					
+					<label for="ingre">Ingredientes:</label>
+					<section id="content">
+						<ol contenteditable="true">
+    
+   
+						</ol>
+					</section>
+					<form enctype="multipart/form-data" id="busqueda">
+						<label for="ingre">Añade ingrediente:</label>
+						<input type="text" name="ingre" id="ingredientes" required >
+						<input type="submit" type="Submit" value="Añade">
+					</form>
+					
+					
+				
+					
+					
+					<label for="ela">Selecciona la foto:</label>
+					<input type="file" name="archivo" /><br />
+					<input type="submit" type="Submit" value="Añadir Foto">
+					
+					
+					<label for="prefoto">Previsualización  de la foto:</label>
+					<p><img src="img/iceicon.png" alt="Receta de helado"><br></p>
+					<label for="ela">Descripción de la foto:</label>
+					<textarea rows="4" cols="40"> </textarea>
+					
+					<input type="submit" type="Submit" value="Eliminar Foto">
+					
+					<label for="prefoto">Previsualización  de la foto:</label>
+					<p><img src="img/ovenicon.png" alt="Receta de horno"><br></p>
+					<label for="ela">Descripción de la foto:</label>
+					<textarea rows="4" cols="40"> </textarea>
+				
+					<input type="submit" type="Submit" value="Eliminar Foto">
+					
+					<label for="prefoto">Previsualización  de la foto:</label>
+					<p><img src="img/iceicon.png" alt="Receta de helado"><br></p>
+					<label for="ela">Descripción de la foto:</label>
+					<textarea rows="4" cols="40"> </textarea>
+					
+					
+					<input type="submit" type="Submit" value="Eliminar Foto">
+					
+					<input type="submit" type="Submit" value="Añadir Fotos">
+					
+					<input type="submit" type="Submit" value="Guarda receta">
+					</fieldset>
+					</form>
+					
+					
+					</section>
+					
+					
+					
+      
+    
+	
+  
+	
+	<footer>
+		<nav>
+			<ul>
+				<li>Recetas de cocina&copy;</li>
+				<li>+34 603859625</li>
+				<li>España</li>
+				<li><time datetime="2018-02-23">2018</time></li>
+				<li><a href="acerca.html">Contacto</a></li>
+			</ul>
+		</nav>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Indice</title>
+	<link rel="stylesheet" href="css/estilo.css">
+
+</head>
+<body>
+  <header>
+    <!-- <img id="logo" src="img/logo.jpg" alt="header"> -->
+		<a id="logo" class="icon-logout" href="index.html"><img src="img/logo.png" alt="Logo"></a>
+    <div>
+      <!-- <h1>Recetas de cocina</h1>
+      <p>Yey la comidica</p> -->
+    </div>
+
+  <nav class="menu">
+  	<div id="menutoggle">
+  		<input type="checkbox" />
+  		<span></span>
+	    <span></span>
+	    <span></span>
+	    <ul id="menu">
+	      <!--<li><label for="ckb-menu">&equiv;</label></li>-->
+	      <li><a class="icon-home" href="index.html">Inicio</a></li>
+				<li><a class="icon-home" href="nueva-receta.html">Nueva receta</a></li>
+	      <li><a class="icon-search" href="buscar.html">Buscar</a></li>
+	      <li><a class="icon-login-1" href="login.html">Iniciar sesi&oacute;n</a></li>
+	      <li><a class="icon-logout" href="index.html">Cerrar sesi&oacute;n</a></li>
+	      <li><a class="icon-user" href="registro.html">Registro</a></li>
+	    </ul>
+	</div>
+  </nav>
+  </header>
+  <section>
+  <h2>Buscar</h2>
+  <form enctype="multipart/form-data" id="busqueda">
+			<fieldset title="Formulario de búsqueda">
+				<legend id="regis">Datos de la receta</legend>
+
+					
+					<label for="nombre">Nombre:</label> <input type="text" id="nombre" name="nombre"   >
+
+					<label for="ingre">Ingredientes:</label>
+					<input type="text" name="ingre" id="ingredientes" >
+
+					<label for="max">Tiempo mínimo:</label>
+					<input type="number" name="min" id="min" >
+					
+					<label for="min">Tiempo máximo:</label>
+					<input type="number" name="max" id="max" >
+
+					<label for="dif" id="dif">Dificultad:</label>
+						<select id="Dificultad" name="Dificultad">
+						<option value="" selected="selected">- selecciona -</option>
+						<option value="Baja">Baja</option>
+						<option value="Media">Media</option>
+						<option value="Alta">Alta</option>
+					</select>
+
+					<label for="comen">Número de comensales:</label>
+					<input type="number" name="comen" id="comen" >
+					
+					<label for="Autor">Autor:</label> <input type="text" id="Autor" name="Autor"  >
+
+					<input type="submit" type="Submit" value="Buscar">
+      </fieldset>
+    </form>
+	</section>
+  
+	<section>
+		Ordenar por:
+		<select name="transporte">
+			<option>Fecha</option>
+			<option>Valoración</option>
+			<option>Ascendente</option>
+			<option>Descendente</option>
+		</select>
+		<input type="text" value="Buscar..."></input>
+		<input type="submit" value="Buscar"></input>
+	</section>
+	<section>
+		<img src="img/receta4.jpg" alt="receta 4">
+		<p>
+			¡Deliciosa receta de macarrones con tomatico!
+			<a href=".html"> Detalles </a>
+		</p>
+		<a href="receta.html"> Macarrones con tomatico </a>
+		<br>
+		<a href="buscar.html"> Bodysnatch Cummerbund </a>
+		<footer>
+			<time datetime="2018-02-10">Fecha <br> 10/02/2018</time>
+			<p><img src="img/like.png" alt="Votos positivos"> <br>200</p>
+			<p><img src="img/dislike.png" alt="Votos negativos"><br>0</p>
+			<p>Comentarios <br> 101</p>
+			<p><img src="img/pastaicon.png" alt="Receta de pasta"><br></p>
+		</footer>
+	</section>
+	<section>
+		<img src="img/receta2.jpg" alt="receta 2">
+		<p>
+			¡Deliciosa receta casera de helado de vainilla!
+			<a href=".html"> Detalles </a>
+		</p>
+		<a href="receta.html"> Helado casero de vainilla </a>
+		<br>
+		<a href="buscar.html"> Buttercup Cumbersnatch </a>
+		<footer>
+			<time datetime="2018-02-20">Fecha <br> 20/02/2018</time>
+			<p><img src="img/like.png" alt="Votos positivos"><br>50</p>
+			<p><img src="img/dislike.png" alt="Votos negativos"><br>10</p>
+			<p>Comentarios <br> 20</p>
+			<p><img src="img/iceicon.png" alt="Receta de helado"><br></p>
+		</footer>
+	</section>
+	<section>
+		<img src="img/receta3.jpg" alt="receta 3">
+		<p>
+			¡Deliciosa receta de calzone!
+			<a href=".html"> Detalles </a>
+		</p>
+		<a href="receta.html"> Calzone </a>
+		<br>
+		<a href="buscar.html"> Bendynoodle Crumperbunts</a>
+		<footer>
+			<time datetime="2018-02-15">Fecha <br> 15/02/2018</time>
+			<p><img src="img/like.png" alt="Votos positivos"> <br>10</p>
+			<p><img src="img/dislike.png" alt="Votos negativos"><br>6</p>
+			<p>Comentarios <br> 5</p>
+			<p><img src="img/ovenicon.png" alt="Receta de horno"><br></p>
+		</footer>
+	</section>
+	<section>
+	<nav class="pag">
+		<ul>
+			<li><a>Anterior</a></li>
+			<li><a>Siguiente</a></li>
+			<li><a>Primera</a></li>
+			<li><a>Ultima</a></li>
+		</ul>
+	</nav>
+	</section>
+	<footer>
+		<nav>
+			<ul>
+				<li>Recetas de cocina&copy;</li>
+				<li>+34 603859625</li>
+				<li>España</li>
+				<li><time datetime="2018-02-23">2018</time></li>
+				<li><a href="acerca.html">Contacto</a></li>
+			</ul>
+		</nav>
+	</footer>
+</body>
+</html>
