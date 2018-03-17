@@ -9,6 +9,7 @@ body{
 	margin: 0 auto;
 	text-align: center;
 }
+
 body>header{
   background-color: #343434;
   /*position: fixed;*/
@@ -20,8 +21,22 @@ body>header{
 	overflow: hidden;
 }
 
+nav[class="menutablet"]{
+	display: none;
+}
+
 header>a{
 	align-self: center;
+}
+
+input[type=submit]{
+	display: block;
+    margin: .5em auto;
+    height: auto;
+    border: 2px solid #99cc99;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1em;
 }
 
 input[type=submit]:hover{
@@ -29,7 +44,7 @@ input[type=submit]:hover{
 
 }
 section{
-	width:35%;
+	width:40%;
 	margin:1em auto;
 	padding:0;
 	border:.1em solid #234;
@@ -182,20 +197,6 @@ section>footer>div{
 	align-items:space-around;
 	background-color: #99cc99;
 }
-
-/*MENU-HAMBUGUESITA
-label[for="ckb-menu"]{
-	cursor: pointer;
-	font-size: 1.4em;
-	font-weight: bold;
-}
-#ckb-menu{
-	display: none;
-}
-#ckb-menu:checked+nav{
-	max-height: 12.7em;
-}*/
-
 /*NAVEGADOR*/
 
 input[type="checkbox"]{
@@ -279,7 +280,7 @@ nav[class="menu"]>div>ul>li:hover{
 		font-style: bold;
 	}
 
-	
+
 
 /*FOOTER*/
 footer>nav{
@@ -308,6 +309,12 @@ footer>nav>ul>li>a{
 	text-decoration: none;
 	color: #99cc99;
 	font-style: bold;
+	transition:all 0.3s;
+
+}
+
+footer>nav>ul>li>a:hover{
+	color:white;
 }
 
 /*FORMULARIOS*/
@@ -403,7 +410,92 @@ article>footer>a:hover{
 /*MODO TABLET*/
 @media (min-width: 481px) and (max-width: 720px){
 
-	/*MENU HAMBURGUESA*/
+	header>a>img{
+		width: 60%;
+	}
+
+	nav[class="menu"]{
+		display: none;
+	}
+
+input[type="checkbox"]{
+	display: none;
+}
+
+nav[class="menutablet"]{
+	width: 100%;
+	overflow: hidden;
+	padding: 1em;
+	padding-bottom: 0;
+	display: flex;
+
+}
+nav[class="menutablet"]>div>ul{
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content:space-around;
+	margin: 0;
+	padding-top: 1em;
+	}
+nav[class="menutablet"]>div>ul>li{
+	text-align: center;
+	width:100%;
+	padding: 1em;
+		}
+nav[class="menutablet"]>div>ul>li:hover{
+		background-color: #99cc99;
+		color:#fff;
+		transition:all 0.3s;
+		}
+
+		nav[class="menutablet"]>div>ul>li>a{
+			display: block;
+			padding: 2em 0;
+			text-decoration: none;
+			font-style: bold;
+		}
+
+		nav[class="menutablet"]>div>ul>li>a,label[for="ckb-menu"]{
+			display: block;
+			padding: .2em 0;
+			text-decoration: none;
+			color: white;
+			font-style: bold;
+		}
+
+		nav[class="menutablet"]>div>ul>li>a>img{
+			width: 2em;
+		}
+
+		section{
+			width:75%;
+			margin:1em auto;
+			padding:0;
+			border:.1em solid #234;
+			border-radius:5px;
+
+			display:flex;
+			flex-direction:column;
+		}
+
+		.icon-user{
+			background-color: transparent;
+		}
+
+		footer>nav>ul>li{
+			text-align: center;
+			display: block;
+			padding: 1em 2.5em;
+			color: #99cc99;
+		}
+
+}
+
+
+/*MODO MOVIL*/
+@media (max-width: 481px) {
+/*MENU HAMBURGUESA*/
 	input[type="checkbox"]{
 		display: block;
 	}
@@ -415,6 +507,13 @@ article>footer>a:hover{
   
   z-index: 1;
 }
+
+footer>nav>ul>li{
+			text-align: center;
+			display: block;
+			padding: 1em 1.5em;
+			color: #99cc99;
+		}
 
 #menutoggle input
 {
@@ -516,9 +615,10 @@ nav[class="pag"]>ul>li{
 	}
 
 	section{
-	width:60%;
+	width:80%;
 	margin:1em auto;
 	padding:0;
+	font-size: 0.8em;
 	border:.1em solid #234;
 	border-radius:5px;
 
@@ -527,8 +627,5 @@ nav[class="pag"]>ul>li{
 
 }
 
-}
-/*MODO MOVIL*/
-@media (max-width: 481px) {
 
 }
