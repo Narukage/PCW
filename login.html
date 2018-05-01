@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Indice</title>
 	<link rel="stylesheet" href="css/estilo.css">
-
+	<script src="js/javascript.js"></script>
 </head>
 <body>
   <header>
@@ -42,7 +42,7 @@
 	    <ul id="menu">
 	      <!--<li><label for="ckb-menu">&equiv;</label></li>-->
 	      <li><a class="icon-home" href="index.html"><img src="img/home.png" alt="Index"></a></li>
-		  <li><a class="icon-home" href="nueva-receta.html"><img src="img/recetaicon.png" alt="Nueva receta"></a></li>
+		  	<li><a class="icon-home" href="nueva-receta.html"><img src="img/recetaicon.png" alt="Nueva receta"></a></li>
 	      <li><a class="icon-search" href="buscar.html"><img src="img/buscar.png" alt="Buscar"></a></li>
 	      <li><a class="icon-login-1" href="login.html"><img src="img/sesion.png" alt="Iniciar sesion"></a></li>
 	      <li><a class="icon-logout" href="index.html"><img src="img/cerrar.png" alt="Cerrar sesion"></a></li>
@@ -51,33 +51,54 @@
 	</div>
   </nav>
   </header>
-  
-		 <h2>Login</h2>
-  <form enctype="multipart/form-data" id="registro">
-			<fieldset title="Formulario de Login">
-				<legend id="regis">Datos de usuario</legend>
 
-					<label for="login">Login:</label> <input type="text" id="nombre" name="nombre" pattern=".[a-zA-Z0-9]{6,20}" autofocus required  >
-				
+	<h2>Login</h2>
+	  <form id="sesion" onsubmit="return hacerLogin(this);">
+				<fieldset title="Formulario de Login">
+					<legend id="regis">Datos de usuario</legend>
 
-					<label for="contraseña">Contrase&ntilde;a:</label>
-					<input type="password" name="contra" id="contraseña" pattern=".[a-zA-Z0-9]{8,20}" required>
+						<label for="login">Login:</label> <input type="text" id="nombre" name="login" pattern=".[a-zA-Z0-9]{6,20}" autofocus required  >
 
-					
 
-					<input type="submit" type="Submit" value="Login">
-      </fieldset>
-    </form>
-	
-		
+						<label for="pwd">Contrase&ntilde;a:</label>
+						<input type="password" name="pwd" id="contraseña" required>
+
+
+
+						<input type="submit" type="Submit" value="Login" id="myBtn">
+	      </fieldset>
+	    </form>
+
+			<fieldset id="myModal" class="modal">
+
+			  <!-- Modal content -->
+			  <div class="modal-content" id="modal-content">
+			    <span class="close">&times;</span>
+			    <h2>¡Login correcto!</h2>
+			  </div>
+
+			</fieldset>
+
+			<fieldset id="myModal2" class="modal">
+
+			  <!-- Modal content -->
+			  <div class="modal-content" id="modal-content">
+			    <span class="close">&times;</span>
+			    <h2>¡Login incorrecto!</h2>
+					<p>Usuario o contraseña incorrectos</p>
+			  </div>
+
+			</fieldset>
+			<script>
+			</script>
 
 	<section>
 
-	<form action="registro.html" enctype="multipart/form-data" id="registro" >
+	<form action="registro.html" enctype="multipart/form-data" >
 		<input type="submit" type="Submit" value="Si no estás registrado pulsa aquí." >
 	</form>
 	</section>
-	
+
 	<footer>
 		<nav>
 			<ul>
@@ -86,7 +107,7 @@
 				<li>España</li>
 				<li><time datetime="2018-02-23">2018</time></li>
 				<li><a href="acerca.html">Contacto</a></li>
-				
+
 			</ul>
 		</nav>
 	</footer>
