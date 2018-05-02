@@ -174,6 +174,7 @@ function hacerRegistro(frm){
 
             if(v.RESULTADO == 'OK'){
               console.log("todo correcto");
+              document.getElementById("registro").reset();
               //Ventana3
               var modal = document.getElementById('myModal'),
               btn = document.getElementById("myBtn"),
