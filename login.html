@@ -5,6 +5,12 @@
 	<title>Indice</title>
 	<link rel="stylesheet" href="css/estilo.css">
 	<script src="js/javascript.js"></script>
+	<script>
+	window.onload = function ejecutar(){
+		console.log("compruebo login");
+		return comprobarLogin();
+	}
+	</script>
 </head>
 <body>
   <header>
@@ -24,11 +30,11 @@
 	    <ul id="menu">
 	      <!--<li><label for="ckb-menu">&equiv;</label></li>-->
 	      <li><a class="icon-home" href="index.html">Inicio</a></li>
-				<li><a class="icon-home" href="nueva-receta.html">Nueva receta</a></li>
+				<li id="nuevareceta"><a class="icon-home" href="nueva-receta.html">Nueva receta</a></li>
 	      <li><a class="icon-search" href="buscar.html">Buscar</a></li>
-	      <li><a class="icon-login-1" href="login.html">Iniciar sesi&oacute;n</a></li>
-	      <li><a class="icon-logout" href="index.html">Cerrar sesi&oacute;n</a></li>
-	      <li><a class="icon-user" href="registro.html">Registro</a></li>
+				<li id="cerrarses"><a class="icon-logout" href="index.html" onclick = "cerrarSesion();">Cerrar sesi&oacute;n</a></li>
+	      <li id="iniciarsesion"><a class="icon-login-1" href="login.html">Iniciar sesi&oacute;n</a></li>
+	      <li id="regis"><a class="icon-user" href="registro.html">Registro</a></li>
 	    </ul>
 	</div>
   </nav>
@@ -89,8 +95,6 @@
 			  </div>
 
 			</fieldset>
-			<script>
-			</script>
 
 	<section>
 

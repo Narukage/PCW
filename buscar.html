@@ -4,7 +4,13 @@
 	<meta charset="UTF-8">
 	<title>Indice</title>
 	<link rel="stylesheet" href="css/estilo.css">
-
+	<script src="js/javascript.js"></script>
+	<script>
+	window.onload = function ejecutar(){
+		console.log("compruebo login");
+		return comprobarLogin();
+	}
+	</script>
 </head>
 <body>
   <header>
@@ -23,12 +29,12 @@
 	    <span></span>
 	    <ul id="menu">
 	      <!--<li><label for="ckb-menu">&equiv;</label></li>-->
-	      <li><a class="icon-home" href="index.html">Inicio</a></li>
-				<li><a class="icon-home" href="nueva-receta.html">Nueva receta</a></li>
-	      <li><a class="icon-search" href="buscar.html">Buscar</a></li>
-	      <li><a class="icon-login-1" href="login.html">Iniciar sesi&oacute;n</a></li>
-	      <li><a class="icon-logout" href="index.html">Cerrar sesi&oacute;n</a></li>
-	      <li><a class="icon-user" href="registro.html">Registro</a></li>
+			 <li><a class="icon-home" href="index.html">Inicio</a></li>
+ 			 <li id="nuevareceta"><a class="icon-home" href="nueva-receta.html">Nueva receta</a></li>
+ 			 <li><a class="icon-search" href="buscar.html">Buscar</a></li>
+ 			 <li id="cerrarses"><a class="icon-logout" href="index.html" onclick = "cerrarSesion();">Cerrar sesi&oacute;n</a></li>
+ 			 <li id="iniciarsesion"><a class="icon-login-1" href="login.html">Iniciar sesi&oacute;n</a></li>
+ 			 <li id="regis"><a class="icon-user" href="registro.html">Registro</a></li>
 	    </ul>
 	</div>
   </nav>
@@ -56,7 +62,7 @@
 			<fieldset title="Formulario de búsqueda">
 				<legend id="regis">Datos de la receta</legend>
 
-					
+
 					<label for="nombre">Nombre:</label> <input type="text" id="nombre" name="nombre"   >
 
 					<label for="ingre">Ingredientes:</label>
@@ -64,7 +70,7 @@
 
 					<label for="max">Tiempo mínimo:</label>
 					<input type="number" name="min" id="min" >
-					
+
 					<label for="min">Tiempo máximo:</label>
 					<input type="number" name="max" id="max" >
 
@@ -78,13 +84,13 @@
 
 					<label for="comen">Número de comensales:</label>
 					<input type="number" name="comen" id="comen" >
-					
+
 					<label for="Autor">Autor:</label> <input type="text" id="Autor" name="Autor"  >
 
 					<input type="submit" type="Submit" value="Buscar">
       </fieldset>
     </form>
-  
+
 	<section>
 		Ordenar por:
 		<select name="transporte">

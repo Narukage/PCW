@@ -4,7 +4,13 @@
 	<meta charset="UTF-8">
 	<title>Indice</title>
 	<link rel="stylesheet" href="css/estilo.css">
-
+	<script src="js/javascript.js"></script>
+	<script>
+	window.onload = function ejecutar(){
+		console.log("compruebo login");
+		return comprobarLogin();
+	}
+	</script>
 </head>
 <body>
   <header>
@@ -23,12 +29,12 @@
       <span></span>
       <ul id="menu">
         <!--<li><label for="ckb-menu">&equiv;</label></li>-->
-        <li><a class="icon-home" href="index.html">Inicio</a></li>
-        <li><a class="icon-home" href="nueva-receta.html">Nueva receta</a></li>
-        <li><a class="icon-search" href="buscar.html">Buscar</a></li>
-        <li><a class="icon-login-1" href="login.html">Iniciar sesi&oacute;n</a></li>
-        <li><a class="icon-logout" href="index.html">Cerrar sesi&oacute;n</a></li>
-        <li><a class="icon-user" href="registro.html">Registro</a></li>
+			 <li><a class="icon-home" href="index.html">Inicio</a></li>
+			 <li id="nuevareceta"><a class="icon-home" href="nueva-receta.html">Nueva receta</a></li>
+			 <li><a class="icon-search" href="buscar.html">Buscar</a></li>
+			 <li id="cerrarses"><a class="icon-logout" href="index.html" onclick = "cerrarSesion();">Cerrar sesi&oacute;n</a></li>
+			 <li id="iniciarsesion"><a class="icon-login-1" href="login.html">Iniciar sesi&oacute;n</a></li>
+			 <li id="regis"><a class="icon-user" href="registro.html">Registro</a></li>
       </ul>
   </div>
   </nav>
@@ -41,39 +47,72 @@
       <span></span>
       <ul id="menu">
         <!--<li><label for="ckb-menu">&equiv;</label></li>-->
-        <li><a class="icon-home" href="index.html"><img src="img/home.png" alt="Index"></a></li>
-      <li><a class="icon-home" href="nueva-receta.html"><img src="img/recetaicon.png" alt="Nueva receta"></a></li>
-        <li><a class="icon-search" href="buscar.html"><img src="img/buscar.png" alt="Buscar"></a></li>
-        <li><a class="icon-login-1" href="login.html"><img src="img/sesion.png" alt="Iniciar sesion"></a></li>
-        <li><a class="icon-logout" href="index.html"><img src="img/cerrar.png" alt="Cerrar sesion"></a></li>
-        <li><a class="icon-user" href="registro.html"><img src="img/registro.png" alt="Registro"></a></li>
+			 <li><a class="icon-home" href="index.html">Inicio</a></li>
+			 <li id="nuevareceta"><a class="icon-home" href="nueva-receta.html">Nueva receta</a></li>
+			 <li><a class="icon-search" href="buscar.html">Buscar</a></li>
+			 <li id="cerrarses"><a class="icon-logout" href="index.html" onclick = "cerrarSesion();">Cerrar sesi&oacute;n</a></li>
+			 <li id="iniciarsesion"><a class="icon-login-1" href="login.html">Iniciar sesi&oacute;n</a></li>
+			 <li id="regis"><a class="icon-user" href="registro.html">Registro</a></li>
       </ul>
   </div>
   </nav>
   </header>
   <h2>Registro</h2>
-  <form enctype="multipart/form-data" id="registro">
+  <form enctype="multipart/form-data" id="registro" onsubmit="return hacerRegistro(this);">
 			<fieldset title="Formulario de registro">
 				<legend id="regis">Datos de usuario</legend>
 
-					<label for="login">Login:</label> <input type="text" id="nombre" name="nombre" pattern=".[a-zA-Z0-9]{6,20}" autofocus required  >
+					<label for="login">Login:</label> <input type="text" id="login" name="login"  pattern=".[a-zA-Z0-9]{6,20}" autofocus required  >
 					<label for="nombre">Nombre:</label> <input type="text" id="nombre" name="nombre" required  >
 
-					<label for="contraseña">Contrase&ntilde;a:</label>
-					<input type="password" name="contra" id="contraseña" pattern=".[a-zA-Z0-9]{8,20}" required>
+					<label for="pwd">Contrase&ntilde;a:</label>
+					<input type="password" name="pwd" id="pwd" required>
 
-					<label for="repetir">Repetir contraseña:</label>
-					<input type="password" name="contra2" id="repetir" required>
+					<label for="pwd2">Repetir contraseña:</label>
+					<input type="password" name="pwd2" id="pwd2" required>
 
 					<label for="correo" id="email">Email:</label>
-				  <input type="email" name="email" placeholder="miusuario@hotmail.com" id="correo" required >
+				  <input type="email" name="email" placeholder="miusuario@hotmail.com" id="email" required >
 
-					<label for="nacimiento">Fecha de nacimiento:</label>
-					<input type="date" name="fecha" id="nacimiento" required />
+					<label for="fnac">Fecha de nacimiento:</label>
+					<input type="date" name="fnac" id="fnac" required />
 
 					<input type="submit" type="Submit" value="Registrarse">
       </fieldset>
     </form>
+
+		<fieldset id="myModal" class="modal">
+
+			<!-- Modal content -->
+			<div class="modal-content" id="modal-content">
+				<span class="close">&times;</span>
+				<h2>¡Registro completado con éxito!</h2>
+			</div>
+
+		</fieldset>
+
+		<fieldset id="myModal2" class="modal">
+
+			<!-- Modal content -->
+			<div class="modal-content" id="modal-content">
+				<span class="close">&times;</span>
+				<h2>¡Error de Registro!</h2>
+				<p>Ya existe un usuario con el mismo nombre</p>
+			</div>
+
+		</fieldset>
+
+		<fieldset id="myModal3" class="modal">
+
+			<!-- Modal content -->
+			<div class="modal-content" id="modal-content">
+				<span class="close">&times;</span>
+				<h2>¡Registro incorrecto!</h2>
+				<p>Las contraseñas no coinciden</p>
+			</div>
+
+		</fieldset>
+
 		<br>
 		<br>
 		<br>
