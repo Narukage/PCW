@@ -352,7 +352,7 @@ function añadirReceta(frm){
         for(var i=1; i<cont ; i++){
           if(document.getElementById("foto"+i)!=null){
             //Subimos las fotos de la receta
-            subirFotos(v.ID, i, usuario);
+            subirFotos(v.ID, i, usuario, frm);
           }
         }
         //Ventana de receta subida
@@ -435,13 +435,13 @@ function subirIngredientes(receta, usuario){
   xhr.send(fd);
 }
 
-function subirFotos(id, indice, usuario){
+function subirFotos(id, indice, usuario, frm){
   let xhr = new XMLHttpRequest(),
 	 fd  = new FormData(),
    url = './rest/receta/' + id + '/foto';
 
   let descripcion = document.getElementById("desc"+indice).value;
-  let foto = document.getElementById("foturra"+indice).value;
+  let foto = frm.parentNode.querySelector('[type="file"]').files[0];
 
   console.log(descripcion);
   console.log(usuario.login);
@@ -455,7 +455,7 @@ function subirFotos(id, indice, usuario){
   xhr.onload = function(){
 
   console.log(xhr.responseText);
-  //let v = JSON.parse(xhr.responseText);
+  let v = JSON.parse(xhr.responseText);
 
     if(v.RESULTADO == 'OK'){
       console.log("HE SUBIDO LAS FOTOS");
