@@ -8,7 +8,9 @@
 	<script>
 	window.onload = function ejecutar(){
 		console.log("compruebo login");
-		return comprobarLogin();
+		if(comprobarLogin()){
+			window.location = 'index.html';
+		}
 	}
 	</script>
 </head>

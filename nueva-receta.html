@@ -8,7 +8,9 @@
 	<script>
 	window.onload = function ejecutar(){
 		console.log("compruebo login");
-		return comprobarLogin();
+		if(!comprobarLogin()){
+			window.location = 'index.html';
+		}
 	}
 	</script>
 </head>
@@ -58,83 +60,86 @@
   </nav>
   </header>
   <h2>Nueva receta</h2>
-  <form enctype="multipart/form-data" id="busqueda">
-  <form enctype="multipart/form-data" id="busqueda">
+  <form enctype="multipart/form-data" id="busqueda" onsubmit="return añadirReceta(this);">
 			<fieldset title="Formulario de nueva receta">
 
 				<legend id="regis">Datos de la receta</legend>
 
 
-					<label for="nombre">Nombre:</label> <input type="text" id="nombre" name="nombre" required title="Máximo 200 caracteres" maxlength="200"   >
+					<label for="n">Nombre:</label>
+					<input type="text" id="n" name="n" required title="Máximo 200 caracteres" maxlength="200"   >
 
-					<label for="ela">Elaboración:</label>
-					<textarea rows="4" cols="40" required> </textarea>
+					<label for="e">Elaboración:</label>
+					<textarea id="e" rows="4" cols="40" required> </textarea>
 
-					<label for="max">Tiempo de elaboración:</label>
-					<input type="number" name="min" id="min" required >
+					<label for="t">Tiempo de elaboración:</label>
+					<input type="number" name="t" id="t" required >
 
-					<label for="dif" id="dif">Dificultad:</label>
-						<select id="Dificultad" name="Dificultad" required>
+					<label for="d" id="d">Dificultad:</label>
+						<select id="d" name="d" required>
 						<option value="" selected="selected">- selecciona -</option>
 						<option value="Baja">Baja</option>
 						<option value="Media">Media</option>
 						<option value="Alta">Alta</option>
 					</select>
 
-					<label for="comen">Número de comensales:</label>
-					<input type="number" name="comen" id="comen" required>
+					<label for="c">Número de comensales:</label>
+					<input type="number" name="c" id="c" required>
 
 					<label for="ingre">Ingredientes:</label>
 					<section id="content">
-						<ol contenteditable="true">
+						<ol contenteditable="true" id="listaingredientes">
 
 
 						</ol>
 					</section>
 					<form enctype="multipart/form-data" id="busqueda">
 						<label for="ingre">Añade ingrediente:</label>
-						<input type="text" name="ingre" id="ingredientes" required >
-						<input type="submit" type="Submit" value="Añade">
+						<input type="text" name="ingre" id="ingrediente" required >
+						<button type="button" onclick="return añadirIngrediente();">Añadir ingrediente</button>
 					</form>
 
+					<button type="button" onclick="return añadirFoto();">Añadir foto</button>
 
+					<div id="foto">
 
+					</div>
 
-
-					<label for="ela">Selecciona la foto:</label>
-					<input type="file" name="archivo" /><br />
-					<input type="submit" type="Submit" value="Añadir Foto">
-
-
-					<label for="prefoto">Previsualización  de la foto:</label>
-					<p><img src="img/iceicon.png" alt="Receta de helado"><br></p>
-					<label for="ela">Descripción de la foto:</label>
-					<textarea rows="4" cols="40"> </textarea>
-
-					<input type="submit" type="Submit" value="Eliminar Foto">
-
-					<label for="prefoto">Previsualización  de la foto:</label>
-					<p><img src="img/ovenicon.png" alt="Receta de horno"><br></p>
-					<label for="ela">Descripción de la foto:</label>
-					<textarea rows="4" cols="40"> </textarea>
-
-					<input type="submit" type="Submit" value="Eliminar Foto">
-
-					<label for="prefoto">Previsualización  de la foto:</label>
-					<p><img src="img/iceicon.png" alt="Receta de helado"><br></p>
-					<label for="ela">Descripción de la foto:</label>
-					<textarea rows="4" cols="40"> </textarea>
-
-
-					<input type="submit" type="Submit" value="Eliminar Foto">
-
-					<input type="submit" type="Submit" value="Añadir Fotos">
-
-					<input type="submit" type="Submit" value="Guarda receta">
+					<input type="submit" type="Submit" value="Enviar receta">
 					</fieldset>
 					</form>
 
+					<fieldset id="myModal" class="modal">
 
+					  <!-- Modal content -->
+					  <div class="modal-content" id="modal-content">
+					    <span class="close">&times;</span>
+					    <h2>¡Receta publicada correctamente!</h2>
+					  </div>
+
+					</fieldset>
+
+					<fieldset id="myModal2" class="modal">
+
+					  <!-- Modal content -->
+					  <div class="modal-content" id="modal-content">
+					    <span class="close">&times;</span>
+							<h2>Error de receta</h2>
+					    <p>¡Debe subir al menos una foto!</p>
+					  </div>
+
+					</fieldset>
+
+					<fieldset id="myModal3" class="modal">
+
+					  <!-- Modal content -->
+					  <div class="modal-content" id="modal-content">
+					    <span class="close">&times;</span>
+							<h2>Error de receta</h2>
+					    <p>¡El tamaño de la imagen excede el máximo permitido!</p>
+					  </div>
+
+					</fieldset>
 
 
 
