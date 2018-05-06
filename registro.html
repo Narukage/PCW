@@ -64,7 +64,9 @@
 			<fieldset title="Formulario de registro">
 				<legend id="regis">Datos de usuario</legend>
 
-					<label for="login">Login:</label> <input type="text" id="login" name="login"  pattern=".[a-zA-Z0-9]{6,20}" autofocus required  >
+					<label for="login">Login:</label> <input type="text" id="login" name="login" onkeyup="return compruebaLogin(this);" pattern=".[a-zA-Z0-9]{6,20}" autofocus required  >
+					<p id="disp">Login disponible</p>
+					<p id="nodisp">Login no disponible</p>
 					<label for="nombre">Nombre:</label> <input type="text" id="nombre" name="nombre" required  >
 
 					<label for="pwd">Contrase&ntilde;a:</label>
