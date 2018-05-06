@@ -1,6 +1,7 @@
 var rutas=[];
 var contador = 0;
 function getRecetas(){
+  comprobarLogin();
   url = './rest/receta/?u=6';
 
   fetch(url,  {'method':'GET'}).then(function( response ){
@@ -8,7 +9,7 @@ function getRecetas(){
 
       }
       response.json().then(function(data){
-        
+
 
     var cont = document.getElementsByTagName("section")[0].children[0];
 
@@ -149,6 +150,7 @@ function busquedaRapida(frm){
 
 
 function compruebaid(){
+  comprobarLogin();
   var urlaux = window.location.href;
   var url = new URL(urlaux);
   var id = url.searchParams.get("id");
@@ -163,7 +165,7 @@ function compruebaid(){
             console.log("No se ha podido realizar la peticion GET correctamente.");
           }
           response.json().then(function(data) {
-
+            console.log(data);
             inf = data.FILAS[0];
             if(inf === undefined )
             {
@@ -171,7 +173,7 @@ function compruebaid(){
 
             }
 
-            cargarReceta();
+            cargarReceta(id);
           });
         }
       )
@@ -183,107 +185,131 @@ function compruebaid(){
 }
 
 
-function cargarReceta()
+function cargarReceta(id)
 {
-	let e = window.location.search;
-	let varsurl = e.split("&");
-	if(varsurl[0].indexOf("id") >= 0)
-	{
-		let idreceta = varsurl[0].split("=")[1];
-		let xhr = new XMLHttpRequest();
-		let url = 'http://localhost/practica02/rest/receta/'+idReceta;
-		xhr.open('GET', url, true);
-		xhr.send();
-		xhr.onload = function() {
-			let v = JSON.parse(xhr.responseText);
-			if(v.RESULTADO == 'ok')
-			{
-				let receta = v.FILAS[0];
-				let html='<h2>'+receta.nombre+'</h2>';
-				html+='<div>';
-				html+='<p>Fecha de publicaci&oacute;n:<time datetime="'+receta.fecha+'">'+receta.fecha+'</time></p>';
-				html+='<p>Autor:'+receta.login+'</p>';
-				html+='</div>';
-				html+='<p>'+receta.descripcion+'</p>';
-				html+='<footer>';
-				html+='<a href="receta.html?id='+receta.id+'#fotos">'+receta.nfotos+' Fotos</a><br>';
-				html+='<a href="receta.html?id='+receta.id+'#comentarios">'+receta.ncomentarios+' Comentarios</a>';
-				html+='</footer>';
-				document.getElementById("receta").innerHTML=html;
-				cargarFotos(receta.id);
-				cargarComentarios(receta.id);
-			}
-		}
-	}
-	else
-	{
-		window.location.replace("http://localhost/practica02/index.html");
-	}
+  let xhr = new XMLHttpRequest();
+  let url = 'rest/receta/'+id;
+
+
+
+
+    fetch(url,  {'method':'GET'}).then(function( response ){
+      if(response.status !== 200){
+
+      }
+      response.json().then(function(data){
+
+
+    var cont = document.getElementById("idReceta");
+
+    var i;
+
+      if(sessionStorage.getItem('usuario') != null){
+        cont.innerHTML +=
+      `
+
+      <h2>`+data.FILAS[0].nombre+`</h2>
+       <div>
+       <p> Fecha de publicación: <time datetime="`+ data.FILAS[0].fecha +`"> </time></p
+       <p>Autor:`+ data.FILAS[0].autor + `</p>
+       </div>
+       <p>`+data.FILAS[0].descripcion + ` </p>
+       <p>`+data.FILAS[0].texto + ` </p>
+       <a href="receta.html?id=`+data.FILAS[0].id+`#comentarios">`+data.FILAS[0].comentarios+` Comentarios</a>
+       <a href="receta.html?id=`+data.FILAS[0].id+`#Fotos"></a>
+
+
+       `;
+       console.log(id);
+       cargarComentarios(fotos_data.FILAS[0].id);
+       cargarFotos(data.FILAS[0].id);
+
+
+
+
+
+
+       }
+
+    });
+
+})
+
 }
 
 function cargarFotos(eid)
 {
-	let xhr = new XMLHttpRequest();
-	let url = 'http://localhost/practica2/rest/receta/'+eid+'/fotos';
-	xhr.open('GET', url, true);
-	xhr.send();
-	xhr.onload = function(){
-		let v = JSON.parse(xhr.responseText);
-		if(v.RESULTADO == 'ok')
-		{
-			let html = '<h3 id="fotos">Fotograf&iacute;as:</h3><div>';
-			for(let i=0; i<v.FILAS.length; i++)
-			{
-				let e = v.FILAS[i];
-				html+='<p>'+(i+1)+'</p>';
-				html+='<figure>';
-				html+='<img src="fotos/'+e.fichero+'" alt="'+e.texto+'">';
-				html+='<figcaption>'+e.texto+'</figcaption>';
-				html+='</figure>';
-			}
-			html+='</div>';
-			document.getElementById("receta").innerHTML+=html;
-		}
-	}
+ let xhr = new XMLHttpRequest();
+ let url = 'rest/receta/'+eid+'/fotos';
+  fetch(url,  {'method':'GET'}).then(function( response ){
+    if(response.status !== 200){
+
+    }
+    response.json().then(function(data){
+
+
+  var conta = document.getElementById("recetafoto");
+
+  var i;
+
+    if(sessionStorage.getItem('usuario') != null){
+      conta.innerHTML +=
+    `
+
+    <img src="fotos/`+ data.FILAS[0].fichero + `" >
+    <p> Descripcion:`+ data.FILAS[0].descripcion_foto + ` </p>
+
+     <p> Comentario </p>
+     <p> Autor:`+ data.FILAS[0].autor + ` </p>
+     <p> Descripcion:`+ data.FILAS[0].texto + ` </p>
+
+
+
+
+     `;
+     cargarComentarios(fotos_data.FILAS[0].id);
+
+  }
+ });
+})
 }
 
 function cargarComentarios(eid)
 {
-	let xhr = new XMLHttpRequest();
-	let url = 'http://localhost/practica2/rest/receta/'+eid+'/comentarios';
-	xhr.open('GET', url, true);
-	xhr.send();
-	xhr.onload = function(){
-		let v = JSON.parse(xhr.responseText);
-		if(v.RESULTADO == 'ok')
-		{
-			let html = '<h3>Comentarios:</h3>';
-			for(let i=0; i<v.FILAS.length; i++)
-			{
-				let e = v.FILAS[i];
-				html+='<article>';
-				html+='<header>';
-				html+='<p>Autor: '+e.login+'</p>';
-				html+='<p><time datetime="'+e.fecha+'">'+e.fecha+'</time></p>';
-				html+='</header>';
-				html+='<h4>'+e.titulo+'</h4>';
-				html+='<p>'+e.texto+'</p>';
-				if(window.sessionStorage)
-				{
-					if(sessionStorage.getItem("Login"))
-					{
-						html+='<footer>';
-						html+='<button onclick="responderComentario(this);">Responder</button>';
-						html+='</footer>';
-					}
-				}
-				else
-				{
-					alert("Tu navegador no soporta sessionStorage");
-				}
-				html+='</article>';
-			}
-			document.getElementById("comentarios").innerHTML=html;
-		}
-	}
+ let xhr = new XMLHttpRequest();
+
+
+
+
+  let url = 'rest/receta/'+eid+'/comentarios';
+  fetch(url,  {'method':'GET'}).then(function( response ){
+    if(response.status !== 200){
+
+    }
+    response.json().then(function(data){
+
+
+  var conta = document.getElementById("recetacoment");
+
+  var i;
+
+    if(sessionStorage.getItem('usuario') != null){
+      conta.innerHTML +=
+    `
+
+    <img src="fotos/`+ data.FILAS[0].fichero + `" >
+    <p> Descripcion:`+ data.FILAS[0].descripcion_foto + ` </p>
+
+     <p> Comentario </p>
+     <p> Autor:`+ data.FILAS[0].autor + ` </p>
+     <p> Descripcion:`+ data.FILAS[0].texto + ` </p>
+
+
+
+
+     `;
+     cargarFotos(data.FILAS[0].id);
+  }
+ });
+})
 }

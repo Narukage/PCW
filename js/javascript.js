@@ -78,6 +78,44 @@ function cerrarSesion(){
   return false;
 }
 
+function compruebaLogin(frm){
+  let url = './rest/login/';
+  var login_value = frm.parentNode.querySelector('input[id=login]').value,
+  mensaje = document.getElementById("disp"),
+  mensaje2 = document.getElementById("nodisp");
+
+  url += login_value;
+
+  fetch(url,  {'method':'GET'}).then(function(response) {
+    if(!response.ok){
+      console.log("error de GET");
+      response.json().then(function(datos){
+        console.log(datos);
+      })
+    }
+    else{
+      console.log("devuelvo datos");
+      response.json().then(function(datos){
+        console.log(datos);
+
+        //Comprueba si el usuario esta disponible
+        if(datos.DISPONIBLE && login_value!=''){
+          console.log("usuario disponible");
+          mensaje2.style.display = "none";
+          mensaje.style.display = "block";
+          login_disponible = true;
+        }else{
+          console.log("usuario no disponible");
+          mensaje.style.display = "none";
+          mensaje2.style.display = "block";
+          error_login = true;
+        }
+      })
+    }
+  });
+  return false;
+}
+
 function hacerRegistro(frm){
   let url ='./rest/login/';
   url2 ='./rest/usuario/',

@@ -21,6 +21,16 @@ body>header{
 	overflow: hidden;
 }
 
+#disp{
+	display: none;
+	color: green;
+}
+
+#nodisp{
+	display: none;
+	color: red;
+}
+
 nav[class="menutablet"]{
 	display: none;
 }
